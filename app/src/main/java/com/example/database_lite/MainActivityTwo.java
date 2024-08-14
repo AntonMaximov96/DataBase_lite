@@ -37,7 +37,7 @@ public class MainActivityTwo extends AppCompatActivity {
         itemLists = new ArrayList<>();
         adapter = new MyAdapter(this, itemLists);
         recyclerView.setAdapter(adapter);
-//        adapter = new MyAdapter(this);
+
     }
 
     public void getAllCategoryList() {
