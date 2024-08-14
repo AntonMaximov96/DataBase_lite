@@ -19,6 +19,7 @@ public interface PersonDAO {
 
         @Query("select * from person")
         public List<Person> getAllPerson();
+
         @Query("select * from person where person_id ==:person_id")
         public Person getPerson(int person_id);
 
