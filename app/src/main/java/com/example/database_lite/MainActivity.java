@@ -1,11 +1,5 @@
 package com.example.database_lite;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
-import androidx.room.RoomDatabase;
-import androidx.sqlite.db.SupportSQLiteDatabase;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -15,7 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.RoomDatabase;
+import androidx.sqlite.db.SupportSQLiteDatabase;
+
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -52,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        personDB = Room.databaseBuilder(getApplicationContext(), PersonDataBase.class,
-                "PersonDB").addCallback(myCallBack).build();
+        personDB = PersonDataBase.getDBinstance(this.getApplicationContext());
+
         // SAVE ------------------------------------------------------------------------------------
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void next_activity () {
+    public void next_activity() {
 
         ExecutorService executorService = Executors.newSingleThreadExecutor();
 
@@ -98,9 +96,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
 
 
-                    }
-                });
             }
+        });
+    }
 
     public void addPersonInBackground(Person person) {
 

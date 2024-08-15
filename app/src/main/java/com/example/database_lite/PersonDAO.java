@@ -9,7 +9,6 @@ import androidx.room.Update;
 import java.util.List;
 @Dao
 public interface PersonDAO {
-
         @Insert
         public void addPerson(Person person);
         @Update
@@ -22,6 +21,4 @@ public interface PersonDAO {
 
         @Query("select * from person where person_id ==:person_id")
         public Person getPerson(int person_id);
-
-
 }

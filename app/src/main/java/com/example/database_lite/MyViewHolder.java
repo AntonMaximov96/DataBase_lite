@@ -8,15 +8,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class MyViewHolder extends RecyclerView.ViewHolder {
 
-    TextView name_guest,people_number;
-        // Для отображения в text view
+    TextView name_guest, people_number;
+
     public MyViewHolder(@NonNull View itemView) {
         super(itemView);
 
         name_guest = itemView.findViewById(R.id.name_guest);
         people_number = itemView.findViewById(R.id.people_number);
-
-
-
     }
 }
